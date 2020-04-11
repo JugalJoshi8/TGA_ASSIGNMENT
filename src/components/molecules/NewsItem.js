@@ -22,7 +22,7 @@ export default ({ item }) => {
 
   return (
     <li className="flex align-center pl2">
-      <div className="mr2 comments">{item.num_comments}</div>
+      <div className="mr2 comments">{item.num_comments || 0}</div>
       <div className="mr1 upvotes">{upvotes || 0}</div>
       <div
         className="p1 mr2"
@@ -60,7 +60,7 @@ export default ({ item }) => {
       <style jsx>{`
         .comments,
         .upvotes {
-          min-width: 30px;
+          min-width: 40px;
         }
 
         .upvoteIcon {
