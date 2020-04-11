@@ -21,11 +21,41 @@ function MyApp({ Component, pageProps }) {
           box-sizing: border-box;
         }
 
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
         .flex {
           display: flex;
         }
         .align-center {
           align-items: center;
+        }
+
+        .fs-xs {
+          font-size: 12px;
+        }
+
+        .fs-sm {
+          font-size: 14px;
+        }
+
+        .fs {
+          font-size: 16px;
+        }
+
+        .fs-lg {
+          font-size: 18px;
+        }
+
+        .fs-xl {
+          font-size: 24px;
+        }
+
+        p1 {
+          padding: 10px;
         }
 
         .pl1 {
@@ -42,6 +72,22 @@ function MyApp({ Component, pageProps }) {
 
         .mr1 {
           margin-right: 10px;
+        }
+
+        .pl2 {
+          padding-left: 20px;
+        }
+
+        .ml2 {
+          margin-left: 20px;
+        }
+
+        .pr2 {
+          padding-right: 20px;
+        }
+
+        .mr2 {
+          margin-right: 20px;
         }
       `}</style>
     </>

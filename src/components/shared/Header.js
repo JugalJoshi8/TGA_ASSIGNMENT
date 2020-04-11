@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header className="flex align-center">
+    <header className="flex align-center p1">
       <div className="logo ml1 mr1">Y</div>
       <h1>Hacker News</h1>
       <ul>
@@ -32,6 +32,7 @@ const Header = () => {
         ul {
           list-style: none;
           display: flex;
+          flex-wrap: wrap;
         }
 
         li {
