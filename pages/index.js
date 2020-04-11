@@ -1,3 +1,3 @@
-import FrontPage from '../src/components/templates/FrontPage';
+import FrontPage from "../src/components/templates/FrontPage";
 
-export default  () => <FrontPage />
+export { FrontPage as default };
