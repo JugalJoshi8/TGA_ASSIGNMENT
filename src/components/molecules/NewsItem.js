@@ -72,7 +72,7 @@ export default ({ item }) => {
           cursor: pointer;
         }
         .light-color {
-          color: #666;
+          color: #333;
         }
 
         li {
