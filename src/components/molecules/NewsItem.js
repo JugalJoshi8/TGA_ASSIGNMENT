@@ -1,17 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getLocation, getHoursPassed } from "../../utils";
-import { setItemAsHidden, isItemHidden } from "../../NewsService";
+import {
+  setItemAsHidden,
+  isItemHidden,
+  getUpvotes,
+  upvoteItem,
+} from "../../NewsService";
 
 export default ({ item }) => {
   const [isHidden, setHidden] = useState(isItemHidden(item.objectID));
   if (isHidden) {
     return null;
   }
+
+  const [upvotes, setUpvotes] = useState(0);
+
+  useEffect(async () => {
+    const upvotes = await getUpvotes(item.objectID);
+    setUpvotes(upvotes);
+  }, []);
+
   return (
     <li className="flex align-center pl2">
       <div className="mr2 comments">{item.num_comments}</div>
-      <div className="mr1">{item.upvotes || 0}</div>
-      <div className="upvoteIcon mr2"></div>
+      <div className="mr1 upvotes">{upvotes || 0}</div>
+      <div
+        className="p1 mr2"
+        onClick={() => {
+          upvoteItem(item.objectID, upvotes + 1);
+          setUpvotes(upvotes + 1);
+        }}
+      >
+        <div className="upvoteIcon"></div>
+      </div>
+
       <div className="flex details">
         <div className="fs-lg mr1">
           {item.title}{" "}
@@ -36,7 +58,8 @@ export default ({ item }) => {
         </div>
       </div>
       <style jsx>{`
-        .comments {
+        .comments,
+        .upvotes {
           min-width: 30px;
         }
 

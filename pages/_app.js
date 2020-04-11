@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
           font-size: 24px;
         }
 
-        p1 {
+        .p1 {
           padding: 10px;
         }
 
