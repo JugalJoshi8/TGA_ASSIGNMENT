@@ -9,11 +9,15 @@ const FrontPage = (props) => {
       <Head>
         <title>Hacker news</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="contains all the latest hacking related news"
+        />
       </Head>
       <main>
         <ul className="news-list">
           {props.hits.map((item) => (
-            <NewsItem item={item} />
+            <NewsItem key={item.objectID} item={item} />
           ))}
         </ul>
       </main>

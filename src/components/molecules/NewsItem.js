@@ -1,6 +1,12 @@
+import { useState } from "react";
 import { getLocation, getHoursPassed } from "../../utils";
+import { setItemAsHidden, isItemHidden } from "../../NewsService";
 
 export default ({ item }) => {
+  const [isHidden, setHidden] = useState(isItemHidden(item.objectID));
+  if (isHidden) {
+    return null;
+  }
   return (
     <li className="flex align-center pl2">
       <div className="mr2 comments">{item.num_comments}</div>
@@ -19,7 +25,13 @@ export default ({ item }) => {
         <div className="light-color mr1 fs-sm">
           {getHoursPassed(item.created_at)} hours ago
         </div>
-        <div>
+        <div
+          className="hide-item"
+          onClick={() => {
+            setItemAsHidden(item.objectID);
+            setHidden(true);
+          }}
+        >
           [<span>hide</span>]
         </div>
       </div>
@@ -50,6 +62,10 @@ export default ({ item }) => {
 
         .details {
           flex-wrap: wrap;
+        }
+
+        .hide-item {
+          cursor: pointer;
         }
       `}</style>
     </li>
