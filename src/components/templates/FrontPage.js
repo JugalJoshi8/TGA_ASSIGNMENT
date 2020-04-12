@@ -4,7 +4,6 @@ import fetch from "isomorphic-unfetch";
 import NewsItem from "../molecules/NewsItem";
 
 const FrontPage = (props) => {
-  console.log(props);
   const [items, setItems] = useState(props.hits);
   const [currentPage, setCurrentPage] = useState(0);
   const getPageItems = async () => {
