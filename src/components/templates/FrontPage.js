@@ -31,7 +31,7 @@ export const FrontPage = ({ router, hits }) => {
           as={nextPageLink}
         >
           <a className="load-more" href={nextPageLink}>
-            More
+            Show more news
           </a>
         </Link>
       </main>
