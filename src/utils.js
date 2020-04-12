@@ -18,8 +18,21 @@ export const getLocation = (href = "") => {
     : {};
 };
 
-export const getHoursPassed = (dateString) => {
-  var diff = (new Date().getTime() - new Date(dateString).getTime()) / 1000;
-  diff /= 60 * 60;
-  return Math.abs(Math.round(diff));
+export const getTimePassed = (dateString) => {
+  var diff = Math.abs(
+    Math.round((new Date().getTime() - new Date(dateString).getTime()) / 1000)
+  );
+  if (diff < 60) {
+    return { diff, unit: "second" };
+  }
+  if (diff < 60 * 60) {
+    return { diff: Math.floor(diff / 60), unit: "mintute" };
+  }
+  if (diff < 60 * 60 * 24) {
+    return { diff: Math.floor(diff / (60 * 60)), unit: "hour" };
+  }
+  if (diff < 60 * 60 * 24 * 365) {
+    return { diff: Math.floor(diff / (60 * 60 * 24)), unit: "day" };
+  }
+  return { diff: Math.floor(diff / (60 * 60 * 24 * 365)), unit: "year" };
 };
