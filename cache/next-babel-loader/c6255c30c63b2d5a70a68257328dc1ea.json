@@ -1,0 +1,1 @@
+{"ast":null,"code":"import FrontPage from \"../src/components/templates/FrontPage\";\nexport { FrontPage as default };","map":null,"metadata":{},"sourceType":"module"}
