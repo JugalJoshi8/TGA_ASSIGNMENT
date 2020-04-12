@@ -1,5 +1,3 @@
-import { useState } from "react";
-import Head from "next/head";
 import { withRouter } from "next/router";
 
 import Link from "next/link";
@@ -12,14 +10,6 @@ export const FrontPage = ({ router, hits }) => {
   const nextPageLink = `/news?page=${parseInt(currentPage) + 1}`;
   return (
     <div className="container">
-      <Head>
-        <title>Hacker news</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="contains all the latest hacking related news"
-        />
-      </Head>
       <main>
         <ul className="news-list">
           {hits.map((item) => (
