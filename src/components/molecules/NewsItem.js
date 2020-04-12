@@ -9,10 +9,6 @@ import {
 
 export default ({ item }) => {
   const [isHidden, setHidden] = useState(isItemHidden(item.objectID));
-  if (isHidden) {
-    return null;
-  }
-
   const [upvotes, setUpvotes] = useState(0);
   const timePassed = getTimePassed(item.created_at);
   const diff = timePassed.diff;
@@ -24,7 +20,9 @@ export default ({ item }) => {
     };
     getUpvotesFunc();
   }, []);
-
+  if (isHidden) {
+    return null;
+  }
   return (
     <li className="flex align-center pl2">
       <div className="mr2 comments">{item.num_comments || 0}</div>

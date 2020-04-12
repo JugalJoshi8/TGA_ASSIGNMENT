@@ -1,8 +1,13 @@
+import Head from "next/head";
+
 import Header from "../src/components/shared/Header";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Hacker news</title>
+      </Head>
       <Header />
       <Component {...pageProps} />
       <style jsx global>{`

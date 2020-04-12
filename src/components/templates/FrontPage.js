@@ -5,7 +5,6 @@ import fetch from "isomorphic-unfetch";
 import NewsItem from "../molecules/NewsItem";
 
 export const FrontPage = ({ router, hits }) => {
-  console.log(router);
   const currentPage = router.query.page || 0;
   const nextPageLink = `/news?page=${parseInt(currentPage) + 1}`;
   return (
@@ -42,7 +41,6 @@ export const FrontPage = ({ router, hits }) => {
 };
 
 FrontPage.getInitialProps = async (ctx) => {
-  console.log("ctx", ctx.query);
   const res = await fetch(
     `https://hn.algolia.com/api/v1/search?page=${ctx.query.page || 0}`
   );
