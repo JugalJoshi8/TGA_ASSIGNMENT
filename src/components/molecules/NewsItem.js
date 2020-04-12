@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getLocation, getHoursPassed } from "../../utils";
+import { getLocation, getTimePassed } from "../../utils";
 import {
   setItemAsHidden,
   isItemHidden,
@@ -14,7 +14,9 @@ export default ({ item }) => {
   }
 
   const [upvotes, setUpvotes] = useState(0);
-
+  const timePassed = getTimePassed(item.created_at);
+  const diff = timePassed.diff;
+  const unit = `${timePassed.unit}${diff > 1 ? "s" : ""}`;
   useEffect(() => {
     const getUpvotesFunc = async () => {
       const upvotes = await getUpvotes(item.objectID);
@@ -48,7 +50,7 @@ export default ({ item }) => {
           <span className="light-color">by</span> {item.author}
         </div>
         <div className="light-color mr1 fs-sm">
-          {getHoursPassed(item.created_at)} hours ago
+          {diff} {unit} ago
         </div>
         <div
           className="hide-item"
