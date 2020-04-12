@@ -14,6 +14,9 @@ class MyDocument extends Document {
             name="description"
             content="contains all the latest hacking related news"
           />
+          <link rel="manifest" href="/manifest.json" />
+          <meta name="theme-color" content="#3367D6" />
+          <link rel="apple-touch-icon" href="/images/icon/icon-96x96.png" />
         </Head>
         <body>
           <Main />
