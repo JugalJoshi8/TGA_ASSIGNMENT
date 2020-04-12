@@ -24,11 +24,11 @@ export default ({ item }) => {
     return null;
   }
   return (
-    <li className="flex align-center pl2">
-      <div className="mr2 comments">{item.num_comments || 0}</div>
-      <div className="mr1 upvotes">{upvotes || 0}</div>
+    <li className="flex align-center pl1">
+      <div className="mr1 comments txt-right">{item.num_comments || 0}</div>
+      <div className="upvotes txt-right">{upvotes || 0}</div>
       <div
-        className="p1 mr2"
+        className="p1 upvote"
         onClick={() => {
           upvoteItem(item.objectID, upvotes + 1);
           setUpvotes(upvotes + 1);
@@ -40,7 +40,7 @@ export default ({ item }) => {
       <div className="flex details">
         <div className="fs-lg mr1">
           {item.title}{" "}
-          <a className="fs-sm light-color" target="_blank" href={item.url}>
+          <a className="fs-sm light-color url" target="_blank" href={item.url}>
             ({getLocation(item.url).hostname})
           </a>{" "}
         </div>
@@ -72,8 +72,16 @@ export default ({ item }) => {
           border-left: 6px solid transparent;
           border-right: 6px solid transparent;
           border-bottom: 8px solid #888;
+        }
+
+        .upvote {
           cursor: pointer;
         }
+
+        .url {
+          text-decoration: none;
+        }
+
         .light-color {
           color: #333;
         }

@@ -19,7 +19,7 @@ export const FrontPage = ({ router, hits }) => {
           href={{ pathname: "/", query: { page: parseInt(currentPage) + 1 } }}
           as={nextPageLink}
         >
-          <a className="load-more" href={nextPageLink}>
+          <a className="load-more pl2" href={nextPageLink}>
             Show more news
           </a>
         </Link>

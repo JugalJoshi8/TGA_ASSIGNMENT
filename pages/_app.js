@@ -14,7 +14,6 @@ function MyApp({ Component, pageProps }) {
         html,
         body {
           padding: 0;
-          margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
@@ -93,6 +92,10 @@ function MyApp({ Component, pageProps }) {
 
         .mr2 {
           margin-right: 20px;
+        }
+
+        .txt-right {
+          text-align: right;
         }
       `}</style>
     </>
