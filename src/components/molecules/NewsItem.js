@@ -63,7 +63,7 @@ export default ({ item }) => {
       <style jsx>{`
         .comments,
         .upvotes {
-          min-width: 40px;
+          min-width: 30px;
         }
 
         .upvoteIcon {
