@@ -15,9 +15,12 @@ export default ({ item }) => {
 
   const [upvotes, setUpvotes] = useState(0);
 
-  useEffect(async () => {
-    const upvotes = await getUpvotes(item.objectID);
-    setUpvotes(upvotes);
+  useEffect(() => {
+    const getUpvotesFunc = async () => {
+      const upvotes = await getUpvotes(item.objectID);
+      setUpvotes(upvotes);
+    };
+    getUpvotesFunc();
   }, []);
 
   return (
