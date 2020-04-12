@@ -2,11 +2,10 @@
   "name": "tga-assignment",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://JugalJoshi8.github.io/TGA_ASSIGNMENT/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "test": "jest"
   },
   "dependencies": {
