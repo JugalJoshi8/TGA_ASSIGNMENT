@@ -11,14 +11,23 @@ const items = [
   },
 ];
 
-let wrapped = shallow(<FrontPage hits={items} />);
+const props = {
+  hits: items,
+  router: {
+    query: {
+      page: 0,
+    },
+  },
+};
+
+let wrapped = shallow(<FrontPage {...props} />);
 
 describe("NewsItem", () => {
   it("should render the FrontPage Component correctly", () => {
     expect(wrapped).toMatchSnapshot();
   });
   it("renders the heading title", () => {
-    wrapped = mount(<FrontPage hits={items} />);
+    wrapped = mount(<FrontPage {...props} />);
     expect(wrapped.find(".comments").text()).toEqual("110");
   });
 });
